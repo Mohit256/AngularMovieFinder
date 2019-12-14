@@ -1,0 +1,27 @@
+<h3>Movie Details</h3>
+
+<ul class="list-group">
+    <li class="list-group-item"> <b>Title: </b>{{details.Title}}</li>
+    <li class="list-group-item"> <b>Rated: </b>{{details.Rated}}</li>
+    <li class="list-group-item"> <b>Poster: </b><img src="{{details.Poster}}" alt = "Img not displayed"></li>
+    <li class="list-group-item"> <b>Released: </b>{{details.Released}}</li>
+    <li class="list-group-item">  <b>Runtime: </b>{{details.Runtime}}</li>
+    <li class="list-group-item">  <b>Director: </b>{{details.Director}} </li>
+    <li class="list-group-item">  <b>Plot: </b>{{details.Plot}}</li>
+  </ul>
+<table class= "table">
+    <thead>
+        <tr>
+            <th>Source</th>
+            <th>Value</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor = "let rating of details.Ratings">
+            <td> {{ rating.Source }}</td>
+            <td> {{ rating.Value }}</td>
+        </tr>
+    </tbody>
+</table>
+
+

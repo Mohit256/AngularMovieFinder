@@ -1,0 +1,39 @@
+<div>
+<form #f="ngForm" (ngSubmit)="onSubmit()" >
+      <div class="form-group" >
+        <label>Movie Keyword :</label>
+        <input type="text"
+               class="form-control"  [(ngModel)]="moviename" name="moviename" required #movie="ngModel">
+      </div>
+  
+      <div class="form-group">
+               <button type="submit" class="btn btn-primary" [disabled]="f.invalid">Submit</button>
+      </div>
+  </form>
+  </div>
+
+  <div *ngIf = "movies.Search">
+      <table class="table table-striped">
+          <thead>
+          <tr>
+              <th>Title</th>
+              <th>Year</th>
+              <th>Type</th>
+              <th>Details</th>
+          </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor = "let movie of movies.Search | keyvalue; let i = index  ">
+                <td>{{movie.value.Title}}</td>
+                <td>{{movie.value.Year}}</td>
+                <td>{{movie.value.Type}}</td>
+            <td><a [routerLink]="['/moviedetails']" [queryParams]="{movieId:movie.value.imdbID}" >
+                    Get Movie Details
+                  </a></td>
+            </tr>
+        </tbody>
+      </table>
+  </div>
+
+
+  
